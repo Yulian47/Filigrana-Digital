@@ -3,26 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Packages &amp; pricing – website from 35,000 NOK | Filigrana Digital</title>
-<meta name="description" content="Fixed prices, clear scope: Website from 35,000 NOK and Product from 120,000 NOK, excl. VAT. Get a quote after a free intro call.">
+<title>Packages &amp; pricing – website from 14,900 NOK | Filigrana Digital</title>
+<meta name="description" content="Three fixed-price packages: Start 14,900 NOK, Growth 21,900 NOK and Complete 29,900 NOK, excl. VAT. Hosting from 490 NOK a month.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.example.com/en/packages.html">
 <link rel="alternate" hreflang="nb" href="https://www.example.com/no/pakker.html"><link rel="alternate" hreflang="en" href="https://www.example.com/en/packages.html"><link rel="alternate" hreflang="x-default" href="https://www.example.com/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Filigrana Digital"><meta property="og:title" content="Packages &amp; pricing – website from 35,000 NOK | Filigrana Digital"><meta property="og:description" content="Fixed prices, clear scope: Website from 35,000 NOK and Product from 120,000 NOK, excl. VAT. Get a quote after a free intro call."><meta property="og:url" content="https://www.example.com/en/packages.html"><meta property="og:image" content="https://www.example.com/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="nb_NO"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Packages &amp; pricing – website from 35,000 NOK | Filigrana Digital"><meta name="twitter:description" content="Fixed prices, clear scope: Website from 35,000 NOK and Product from 120,000 NOK, excl. VAT. Get a quote after a free intro call."><meta name="twitter:image" content="https://www.example.com/assets/og-image.jpg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Filigrana Digital"><meta property="og:title" content="Packages &amp; pricing – website from 14,900 NOK | Filigrana Digital"><meta property="og:description" content="Three fixed-price packages: Start 14,900 NOK, Growth 21,900 NOK and Complete 29,900 NOK, excl. VAT. Hosting from 490 NOK a month."><meta property="og:url" content="https://www.example.com/en/packages.html"><meta property="og:image" content="https://www.example.com/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="nb_NO"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Packages &amp; pricing – website from 14,900 NOK | Filigrana Digital"><meta name="twitter:description" content="Three fixed-price packages: Start 14,900 NOK, Growth 21,900 NOK and Complete 29,900 NOK, excl. VAT. Hosting from 490 NOK a month."><meta name="twitter:image" content="https://www.example.com/assets/og-image.jpg">
 <meta name="theme-color" content="#04090d" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#F5FAFC" media="(prefers-color-scheme: light)">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..600&display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="../assets/inter-latin.f11d729b.woff2" crossorigin>
 <script>
-  (function () {
-    var t = 'dark';
-    try { t = localStorage.getItem('fg-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); } catch (e) {}
-    document.documentElement.setAttribute('data-theme', t);
-  })();
+(function () {
+  /* Світла тема від сходу до заходу сонця в Норвегії (Осло ≈ 59.9°N, 10.75°E); запасний варіант 09–17 */
+  function sun(d) {
+    var y = d.getUTCFullYear(), m = d.getUTCMonth(), dd = d.getUTCDate(), base = Date.UTC(y, m, dd), n = Math.floor((base - Date.UTC(y, 0, 0)) / 864e5),
+        g = 2 * Math.PI / 365 * (n - 1), lat = 59.91 * Math.PI / 180, lon = 10.75,
+        eq = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g)),
+        dc = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g),
+        c = Math.cos(90.833 * Math.PI / 180) / (Math.cos(lat) * Math.cos(dc)) - Math.tan(lat) * Math.tan(dc);
+    if (!(c > -1 && c < 1)) return null;
+    var ha = Math.acos(c) * 180 / Math.PI;
+    return [base + (720 - 4 * (lon + ha) - eq) * 6e4, base + (720 - 4 * (lon - ha) - eq) * 6e4];
+  }
+  function auto(d) { d = d || new Date(); var s = sun(d); if (!s) { var h = d.getHours(); return h >= 9 && h < 17 ? 'light' : 'dark'; } var t = d.getTime(); return t >= s[0] && t < s[1] ? 'light' : 'dark'; }
+  function next(d) {
+    d = d || new Date(); var t = d.getTime(), s = sun(d);
+    if (!s) { var x = new Date(d); x.setMinutes(0, 0, 0); var h = d.getHours(); if (h < 9) x.setHours(9); else if (h < 17) x.setHours(17); else { x.setDate(x.getDate() + 1); x.setHours(9); } return x.getTime(); }
+    if (t < s[0]) return s[0]; if (t < s[1]) return s[1];
+    var s2 = sun(new Date(t + 864e5)); return s2 ? s2[0] : t + 36e5;
+  }
+  window.fgTheme = { auto: auto, next: next };
+  var r = document.documentElement, now = new Date(), t = auto(now);
+  try { var o = JSON.parse(localStorage.getItem('fg-theme-override') || 'null'); if (o && (o.t === 'light' || o.t === 'dark') && o.until > now.getTime()) t = o.t; } catch (e) {}
+  r.setAttribute('data-theme', t);
+})();
 </script>
-<link rel="stylesheet" href="../assets/style.fd3a092b.css">
+<link rel="stylesheet" href="../assets/style.a1fb38af.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important}.manifesto .w{color:var(--fg)}</style></noscript>
-<script type="application/ld+json">{"@type":"Organization","@id":"https://www.example.com/#org","name":"Filigrana Digital","url":"https://www.example.com/","logo":"https://www.example.com/assets/logo.png","description":"Filigrana Digital is an IT studio in Norway. We design and build websites, apps and digital solutions — from idea to launch, in Norwegian and English.","areaServed":{"@type":"Country","name":"Norway"},"knowsLanguage":["nb","en"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"hello@example.com","telephone":"+47 000 00 000","availableLanguage":["Norwegian","English"]},"@context":"https://schema.org"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.example.com/#website","url":"https://www.example.com/","name":"Filigrana Digital","inLanguage":["nb","en"],"publisher":{"@id":"https://www.example.com/#org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.example.com/en/"},{"@type":"ListItem","position":2,"name":"Packages","item":"https://www.example.com/en/packages.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Packages & pricing – website from 35,000 NOK","provider":{"@id":"https://www.example.com/#org"},"areaServed":"NO","inLanguage":"en","offers":[{"@type":"Offer","name":"Website","description":"A fast, polished site for your business.","priceCurrency":"NOK","url":"https://www.example.com/en/packages.html","priceSpecification":{"@type":"PriceSpecification","minPrice":35000,"priceCurrency":"NOK","valueAddedTaxIncluded":false}},{"@type":"Offer","name":"Product","description":"A custom web or mobile product, from idea to launch.","priceCurrency":"NOK","url":"https://www.example.com/en/packages.html","priceSpecification":{"@type":"PriceSpecification","minPrice":120000,"priceCurrency":"NOK","valueAddedTaxIncluded":false}}]}</script>
+<script type="application/ld+json">{"@type":"Organization","@id":"https://www.example.com/#org","name":"Filigrana Digital","url":"https://www.example.com/","logo":"https://www.example.com/assets/logo.png","description":"Filigrana Digital builds websites, visual identity and ads for small and medium-sized businesses in Norway. Fixed prices, from the first workshop to launch.","areaServed":{"@type":"Country","name":"Norway"},"knowsLanguage":["nb","en"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"hello@example.com","telephone":"+47 000 00 000","availableLanguage":["Norwegian","English"]},"@context":"https://schema.org"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.example.com/#website","url":"https://www.example.com/","name":"Filigrana Digital","inLanguage":["nb","en"],"publisher":{"@id":"https://www.example.com/#org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.example.com/en/"},{"@type":"ListItem","position":2,"name":"Packages","item":"https://www.example.com/en/packages.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Packages & pricing – website from 14,900 NOK","provider":{"@id":"https://www.example.com/#org"},"areaServed":"NO","inLanguage":"en","offers":[{"@type":"Offer","name":"Start","description":"A professional website that makes your business visible and easy to contact.","priceCurrency":"NOK","url":"https://www.example.com/en/packages.html","priceSpecification":{"@type":"PriceSpecification","price":14900,"priceCurrency":"NOK","valueAddedTaxIncluded":false}},{"@type":"Offer","name":"Growth","description":"A website with sharp messaging that shows why customers should choose you.","priceCurrency":"NOK","url":"https://www.example.com/en/packages.html","priceSpecification":{"@type":"PriceSpecification","price":21900,"priceCurrency":"NOK","valueAddedTaxIncluded":false}},{"@type":"Offer","name":"Complete","description":"Brand, website and ads that help you reach new customers.","priceCurrency":"NOK","url":"https://www.example.com/en/packages.html","priceSpecification":{"@type":"PriceSpecification","price":29900,"priceCurrency":"NOK","valueAddedTaxIncluded":false}}]}</script>
 </head>
 <body>
 <a id="top"></a>
@@ -53,13 +71,14 @@
     <a class="logo" href="index.html" aria-label="Filigrana Digital — back to top">
       <svg class="logo-full" role="img" aria-label="Filigrana Digital"><use href="#logo-full"/></svg>
     </a>
-    <nav class="links" aria-label="Main navigation">
+    <nav class="links" id="nav-links" aria-label="Main navigation">
+      <a class="l" href="index.html">Home</a>
       <a class="l" href="index.html#services">Services</a>
-      <a class="l" href="index.html#approach">Approach</a>
       <a class="l" href="projects.html">Projects</a>
       <a class="l" href="packages.html" aria-current="page">Packages</a>
-      <a class="l" href="index.html#faq">FAQ</a>
       <a class="l" href="contact.html">Contact</a>
+    <button class="mtheme" type="button"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="t-l">Light theme</span><span class="t-d">Dark theme</span></button>
+      <a class="btn mnav-cta" href="contact.html">Discuss a project</a>
     </nav>
     <div class="right">
       <div class="lang" role="group" aria-label="Language"><a href="../no/pakker.html" hreflang="nb" lang="nb">NO</a><a href="../en/packages.html" hreflang="en" lang="en" aria-current="true">EN</a></div>
@@ -68,53 +87,53 @@
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
       <a class="btn" href="contact.html">Discuss a project</a>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main id="main">
-<section class="s page-first" id="pricing" data-form="sphere" data-side="right">
-    <div class="wrap two">
-      <div class="pk-col">
-      <div class="reveal pk-head">
+  <section class="s page-first" id="pricing" data-form="sphere" data-side="right">
+    <div class="wrap two pk-top">
+      <div>
         <p class="label">Packages</p>
-        <h1 class="h2">Pick the package that fits your project.</h1>
-        <p class="lead wide">Clear scope, fixed price, no surprises. Need something different? We'll tailor it.</p>
-      </div>
-      <div class="pk-grid">
-        <article class="pk reveal">
-          <h2>Website</h2>
-          <p class="pk-d">A fast, polished site for your business.</p>
-          <p class="pk-price"><span class="pk-from">from</span><b>35 000</b><span class="pk-unit">NOK · excl. VAT</span></p>
-          <ul class="pk-list">
-            <li>Design for up to 5 pages</li>
-            <li>Responsive development on a modern stack</li>
-            <li>CMS and content setup</li>
-            <li>Basic SEO and analytics</li>
-            <li>Launch and 30 days of support</li>
-          </ul>
-          <p class="pk-time">Delivery: 4–6 weeks</p>
-          <a class="ghost pk-cta" href="contact.html?pkg=web"><span>Get a quote</span> <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="pk pop reveal">
-          <span class="pk-badge">Most popular</span>
-          <h2>Product</h2>
-          <p class="pk-d">A custom web or mobile product, from idea to launch.</p>
-          <p class="pk-price"><span class="pk-from">from</span><b>120 000</b><span class="pk-unit">NOK · excl. VAT</span></p>
-          <ul class="pk-list">
-            <li>Discovery workshop and UX research</li>
-            <li>Full UI/UX design and design system</li>
-            <li>Web app or mobile app (MVP)</li>
-            <li>Integrations, API and cloud setup</li>
-            <li>CI/CD, monitoring and 3 months of support</li>
-          </ul>
-          <p class="pk-time">Delivery: 8–12 weeks</p>
-          <a class="btn pk-cta" href="contact.html?pkg=product">Get started</a>
-        </article>
-      </div>
-      <p class="pk-note reveal">Prices are indicative and exclude VAT. Final quote after a free intro call.</p>
+        <h1 class="h2">Three packages. Fixed prices.</h1>
+        <p class="lead wide">All prices exclude VAT. Half is paid at signing and the rest at launch. No hidden costs.</p>
       </div>
       <div class="vis" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="s pk-sec" id="plans" data-form="drift">
+    <div class="wrap">
+      <div class="pjc pkc reveal" id="pkc" role="region" aria-roledescription="carousel" aria-label="Packages" tabindex="0" data-gap="108" data-vis="1" data-start="1" data-ry="10">
+        <div class="pjc-stage">
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Be seen</p><h2>Start</h2><p class="pk-d">A professional website that makes your business visible and easy to contact.</p><p class="pk-price"><span class="pk-from">Fixed price</span><b>14 900</b><span class="pk-unit">NOK · excl. VAT</span></p><p class="pk-in">Includes:</p><ul class="pk-list"><li>Website for computer, tablet and mobile</li><li>Fast, and built to be found in search</li><li>Colours and fonts from your description</li><li>Your texts and images</li><li>Contact form connected to your email</li><li>CMS training — update content yourself</li><li>One design revision</li></ul><p class="pk-time">Delivery in 3–6 weeks</p><a class="btn pk-cta" href="contact.html?pkg=start">Choose Start</a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk pop"><span class="pk-badge">Most popular</span><p class="pk-tag">Be clear</p><h2>Growth</h2><p class="pk-d">A website with sharp messaging that shows why customers should choose you.</p><p class="pk-price"><span class="pk-from">Fixed price</span><b>21 900</b><span class="pk-unit">NOK · excl. VAT</span></p><p class="pk-in">Everything in Start, and:</p><ul class="pk-list"><li>Workshop about your business, 60–120 minutes</li><li>Plan to be found on Google and in AI search</li><li>Tone-of-voice profile, so texts sound like you</li><li>Texts written for you</li><li>Hand-drawn sketches before the site is coded</li><li>Google Search Console set up</li></ul><p class="pk-time">Delivery in 3–6 weeks</p><a class="btn pk-cta" href="contact.html?pkg=growth">Choose Growth</a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Be noticed</p><h2>Complete</h2><p class="pk-d">Brand, website and ads that help you reach new customers.</p><p class="pk-price"><span class="pk-from">Fixed price</span><b>29 900</b><span class="pk-unit">NOK · excl. VAT</span></p><p class="pk-in">Everything in Growth, and:</p><ul class="pk-list"><li>Logo and visual identity, in a brand manual</li><li>Your own Meta Business Manager set up</li><li>Three ad designs for feed and story</li><li>Meta campaign set up in your account</li><li>Landing page that turns ad clicks into enquiries</li><li>Conversion tracking and a login to visitor statistics</li><li>First month followed up with a report</li></ul><p class="pk-time">Delivery in 3–6 weeks</p><a class="btn pk-cta" href="contact.html?pkg=complete">Choose Complete</a></article></div>
+        </div>
+        <button type="button" class="pjc-btn prev" aria-label="Previous package"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="pjc-btn next" aria-label="Next package"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="pjc-foot"><span class="pjc-count" aria-live="polite">02 / 03</span><div class="pjc-dots"></div></div>
+      </div>
+      <p class="pk-note reveal">All prices exclude VAT. Half is paid at signing and the rest at launch, together with the first month of hosting. Ad budget is paid directly to Meta.</p>
+    </div>
+  </section>
+
+  <section class="s pk-sec" id="extras" data-form="drift">
+    <div class="wrap">
+      <p class="label">Extras</p>
+      <h2 class="h2">After launch, and online stores.</h2>
+      <div class="pjc pkc reveal" id="pxc" role="region" aria-roledescription="carousel" aria-label="Hosting, support and online store" tabindex="0" data-gap="108" data-vis="1" data-start="1" data-ry="10">
+        <div class="pjc-stage">
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Keep it running</p><h2>Hosting</h2><p class="pk-d">Platform costs covered, so your site stays online and secure.</p><p class="pk-price"><b>490</b><span class="pk-unit">NOK / month · excl. VAT</span></p><p class="pk-in">Includes:</p><ul class="pk-list"><li>Hosting and platform costs</li><li>Publishing system (CMS)</li><li>Consent tool and form email</li><li>Security and platform updates</li><li>No binding — cancel any time</li></ul><p class="pk-time">Billed from launch</p><a class="ghost pk-cta" href="contact.html?addon=hosting"><span>Ask about hosting</span> <span aria-hidden="true">→</span></a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Stay ahead</p><h2>Support</h2><p class="pk-d">We follow the site after launch and keep improving it every month.</p><p class="pk-price"><b>3 500</b><span class="pk-unit">NOK / month · excl. VAT</span></p><p class="pk-in">Everything in Hosting, and:</p><ul class="pk-list"><li>Three hours a month for maintenance and improvements</li><li>Monthly meeting about next steps</li><li>Monthly report with the numbers</li><li>Text changes and updates</li><li>No binding — cancel any time</li></ul><p class="pk-time">Billed from launch</p><a class="ghost pk-cta" href="contact.html?addon=support"><span>Ask about support</span> <span aria-hidden="true">→</span></a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Sell online</p><h2>Online store</h2><p class="pk-d">A store with your own design, built to be found and easy to run.</p><p class="pk-price"><b>Quote</b><span class="pk-unit">price after a conversation</span></p><p class="pk-in">Includes:</p><ul class="pk-list"><li>Shopify store with your own design</li><li>Payment and shipping for Norwegian customers</li><li>Product pages built to be found on Google</li><li>Ads that show your products</li><li>Training, so you add products yourself</li><li>Optional link to your shop till, with shared stock</li></ul><p class="pk-time">Delivery after agreement</p><a class="ghost pk-cta" href="contact.html?pkg=shop"><span>Tell us about the project</span> <span aria-hidden="true">→</span></a></article></div>
+        </div>
+        <button type="button" class="pjc-btn prev" aria-label="Previous option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="pjc-btn next" aria-label="Next option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="pjc-foot"><span class="pjc-count" aria-live="polite">02 / 03</span><div class="pjc-dots"></div></div>
+      </div>
     </div>
   </section>
 </main>
@@ -139,10 +158,9 @@
       <nav class="ft-col" aria-labelledby="ft-h3">
         <h2 id="ft-h3">Legal</h2>
         <ul>
-          <li><a href="#privacy">Privacy policy</a></li>
-          <li><a href="#terms">Terms of service</a></li>
-          <li><a href="#cookies">Cookie policy</a></li>
-          <li><a href="#accessibility">Accessibility statement</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of service</a></li>
+          <li><a href="cookies.html">Cookie policy</a></li>
         </ul>
       </nav>
       <div class="ft-col">
@@ -169,6 +187,6 @@
 </footer>
 <div class="hint" id="hint">Move the cursor through the particles — they react. Click for a burst.</div>
 
-<script src="../assets/app.1b930d18.js" defer></script>
+<script src="../assets/app.0ba50672.js" defer></script>
 </body>
 </html>

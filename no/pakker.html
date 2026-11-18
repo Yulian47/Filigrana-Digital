@@ -3,26 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pakker og priser – nettside fra 35 000 kr | Filigrana Digital</title>
-<meta name="description" content="Faste priser og tydelig omfang: Nettsted fra 35 000 kr og Produkt fra 120 000 kr, eksklusive mva. Be om tilbud etter en gratis samtale.">
+<title>Pakker og priser – nettside fra 14 900 kr | Filigrana Digital</title>
+<meta name="description" content="Tre pakker med fast pris: Start 14 900 kr, Vekst 21 900 kr og Komplett 29 900 kr, eksklusive mva. Hosting fra 490 kr i måneden.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.example.com/no/pakker.html">
 <link rel="alternate" hreflang="nb" href="https://www.example.com/no/pakker.html"><link rel="alternate" hreflang="en" href="https://www.example.com/en/packages.html"><link rel="alternate" hreflang="x-default" href="https://www.example.com/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Filigrana Digital"><meta property="og:title" content="Pakker og priser – nettside fra 35 000 kr | Filigrana Digital"><meta property="og:description" content="Faste priser og tydelig omfang: Nettsted fra 35 000 kr og Produkt fra 120 000 kr, eksklusive mva. Be om tilbud etter en gratis samtale."><meta property="og:url" content="https://www.example.com/no/pakker.html"><meta property="og:image" content="https://www.example.com/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="nb_NO"><meta property="og:locale:alternate" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Pakker og priser – nettside fra 35 000 kr | Filigrana Digital"><meta name="twitter:description" content="Faste priser og tydelig omfang: Nettsted fra 35 000 kr og Produkt fra 120 000 kr, eksklusive mva. Be om tilbud etter en gratis samtale."><meta name="twitter:image" content="https://www.example.com/assets/og-image.jpg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Filigrana Digital"><meta property="og:title" content="Pakker og priser – nettside fra 14 900 kr | Filigrana Digital"><meta property="og:description" content="Tre pakker med fast pris: Start 14 900 kr, Vekst 21 900 kr og Komplett 29 900 kr, eksklusive mva. Hosting fra 490 kr i måneden."><meta property="og:url" content="https://www.example.com/no/pakker.html"><meta property="og:image" content="https://www.example.com/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="nb_NO"><meta property="og:locale:alternate" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Pakker og priser – nettside fra 14 900 kr | Filigrana Digital"><meta name="twitter:description" content="Tre pakker med fast pris: Start 14 900 kr, Vekst 21 900 kr og Komplett 29 900 kr, eksklusive mva. Hosting fra 490 kr i måneden."><meta name="twitter:image" content="https://www.example.com/assets/og-image.jpg">
 <meta name="theme-color" content="#04090d" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#F5FAFC" media="(prefers-color-scheme: light)">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..600&display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="../assets/inter-latin.f11d729b.woff2" crossorigin>
 <script>
-  (function () {
-    var t = 'dark';
-    try { t = localStorage.getItem('fg-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); } catch (e) {}
-    document.documentElement.setAttribute('data-theme', t);
-  })();
+(function () {
+  /* Світла тема від сходу до заходу сонця в Норвегії (Осло ≈ 59.9°N, 10.75°E); запасний варіант 09–17 */
+  function sun(d) {
+    var y = d.getUTCFullYear(), m = d.getUTCMonth(), dd = d.getUTCDate(), base = Date.UTC(y, m, dd), n = Math.floor((base - Date.UTC(y, 0, 0)) / 864e5),
+        g = 2 * Math.PI / 365 * (n - 1), lat = 59.91 * Math.PI / 180, lon = 10.75,
+        eq = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g)),
+        dc = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g),
+        c = Math.cos(90.833 * Math.PI / 180) / (Math.cos(lat) * Math.cos(dc)) - Math.tan(lat) * Math.tan(dc);
+    if (!(c > -1 && c < 1)) return null;
+    var ha = Math.acos(c) * 180 / Math.PI;
+    return [base + (720 - 4 * (lon + ha) - eq) * 6e4, base + (720 - 4 * (lon - ha) - eq) * 6e4];
+  }
+  function auto(d) { d = d || new Date(); var s = sun(d); if (!s) { var h = d.getHours(); return h >= 9 && h < 17 ? 'light' : 'dark'; } var t = d.getTime(); return t >= s[0] && t < s[1] ? 'light' : 'dark'; }
+  function next(d) {
+    d = d || new Date(); var t = d.getTime(), s = sun(d);
+    if (!s) { var x = new Date(d); x.setMinutes(0, 0, 0); var h = d.getHours(); if (h < 9) x.setHours(9); else if (h < 17) x.setHours(17); else { x.setDate(x.getDate() + 1); x.setHours(9); } return x.getTime(); }
+    if (t < s[0]) return s[0]; if (t < s[1]) return s[1];
+    var s2 = sun(new Date(t + 864e5)); return s2 ? s2[0] : t + 36e5;
+  }
+  window.fgTheme = { auto: auto, next: next };
+  var r = document.documentElement, now = new Date(), t = auto(now);
+  try { var o = JSON.parse(localStorage.getItem('fg-theme-override') || 'null'); if (o && (o.t === 'light' || o.t === 'dark') && o.until > now.getTime()) t = o.t; } catch (e) {}
+  r.setAttribute('data-theme', t);
+})();
 </script>
-<link rel="stylesheet" href="../assets/style.fd3a092b.css">
+<link rel="stylesheet" href="../assets/style.a1fb38af.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important}.manifesto .w{color:var(--fg)}</style></noscript>
-<script type="application/ld+json">{"@type":"Organization","@id":"https://www.example.com/#org","name":"Filigrana Digital","url":"https://www.example.com/","logo":"https://www.example.com/assets/logo.png","description":"Filigrana Digital er et IT-byrå i Norge. Vi designer og utvikler nettsider, apper og digitale løsninger – fra idé til lansering, på norsk og engelsk.","areaServed":{"@type":"Country","name":"Norway"},"knowsLanguage":["nb","en"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"hello@example.com","telephone":"+47 000 00 000","availableLanguage":["Norwegian","English"]},"@context":"https://schema.org"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.example.com/#website","url":"https://www.example.com/","name":"Filigrana Digital","inLanguage":["nb","en"],"publisher":{"@id":"https://www.example.com/#org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://www.example.com/no/"},{"@type":"ListItem","position":2,"name":"Pakker","item":"https://www.example.com/no/pakker.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Pakker og priser – nettside fra 35 000 kr","provider":{"@id":"https://www.example.com/#org"},"areaServed":"NO","inLanguage":"nb","offers":[{"@type":"Offer","name":"Nettsted","description":"Et raskt, polert nettsted for virksomheten din.","priceCurrency":"NOK","url":"https://www.example.com/no/pakker.html","priceSpecification":{"@type":"PriceSpecification","minPrice":35000,"priceCurrency":"NOK","valueAddedTaxIncluded":false}},{"@type":"Offer","name":"Produkt","description":"Et skreddersydd web- eller mobilprodukt, fra idé til lansering.","priceCurrency":"NOK","url":"https://www.example.com/no/pakker.html","priceSpecification":{"@type":"PriceSpecification","minPrice":120000,"priceCurrency":"NOK","valueAddedTaxIncluded":false}}]}</script>
+<script type="application/ld+json">{"@type":"Organization","@id":"https://www.example.com/#org","name":"Filigrana Digital","url":"https://www.example.com/","logo":"https://www.example.com/assets/logo.png","description":"Filigrana Digital lager nettsider, visuell profil og annonser for små og mellomstore bedrifter i Norge. Faste priser, fra første workshop til lansering.","areaServed":{"@type":"Country","name":"Norway"},"knowsLanguage":["nb","en"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"hello@example.com","telephone":"+47 000 00 000","availableLanguage":["Norwegian","English"]},"@context":"https://schema.org"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.example.com/#website","url":"https://www.example.com/","name":"Filigrana Digital","inLanguage":["nb","en"],"publisher":{"@id":"https://www.example.com/#org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://www.example.com/no/"},{"@type":"ListItem","position":2,"name":"Pakker","item":"https://www.example.com/no/pakker.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Pakker og priser – nettside fra 14 900 kr","provider":{"@id":"https://www.example.com/#org"},"areaServed":"NO","inLanguage":"nb","offers":[{"@type":"Offer","name":"Start","description":"En profesjonell nettside som gjør bedriften synlig og enkel å kontakte.","priceCurrency":"NOK","url":"https://www.example.com/no/pakker.html","priceSpecification":{"@type":"PriceSpecification","price":14900,"priceCurrency":"NOK","valueAddedTaxIncluded":false}},{"@type":"Offer","name":"Vekst","description":"En nettside med tydelige budskap som viser hvorfor kundene bør velge deg.","priceCurrency":"NOK","url":"https://www.example.com/no/pakker.html","priceSpecification":{"@type":"PriceSpecification","price":21900,"priceCurrency":"NOK","valueAddedTaxIncluded":false}},{"@type":"Offer","name":"Komplett","description":"Profil, nettside og annonser som hjelper deg å nå nye kunder.","priceCurrency":"NOK","url":"https://www.example.com/no/pakker.html","priceSpecification":{"@type":"PriceSpecification","price":29900,"priceCurrency":"NOK","valueAddedTaxIncluded":false}}]}</script>
 </head>
 <body>
 <a id="top"></a>
@@ -53,13 +71,14 @@
     <a class="logo" href="index.html" aria-label="Filigrana Digital – til toppen">
       <svg class="logo-full" role="img" aria-label="Filigrana Digital"><use href="#logo-full"/></svg>
     </a>
-    <nav class="links" aria-label="Hovednavigasjon">
+    <nav class="links" id="nav-links" aria-label="Hovednavigasjon">
+      <a class="l" href="index.html">Hjem</a>
       <a class="l" href="index.html#services">Tjenester</a>
-      <a class="l" href="index.html#approach">Tilnærming</a>
       <a class="l" href="prosjekter.html">Prosjekter</a>
       <a class="l" href="pakker.html" aria-current="page">Pakker</a>
-      <a class="l" href="index.html#faq">FAQ</a>
       <a class="l" href="kontakt.html">Kontakt</a>
+    <button class="mtheme" type="button"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="t-l">Lyst tema</span><span class="t-d">Mørkt tema</span></button>
+      <a class="btn mnav-cta" href="kontakt.html">Diskuter prosjektet</a>
     </nav>
     <div class="right">
       <div class="lang" role="group" aria-label="Språk"><a href="../no/pakker.html" hreflang="nb" lang="nb" aria-current="true">NO</a><a href="../en/packages.html" hreflang="en" lang="en">EN</a></div>
@@ -68,53 +87,53 @@
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
       <a class="btn" href="kontakt.html">Diskuter prosjektet</a>
+      <button class="burger" id="burger" type="button" aria-label="Meny" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main id="main">
-<section class="s page-first" id="pricing" data-form="sphere" data-side="right">
-    <div class="wrap two">
-      <div class="pk-col">
-      <div class="reveal pk-head">
+  <section class="s page-first" id="pricing" data-form="sphere" data-side="right">
+    <div class="wrap two pk-top">
+      <div>
         <p class="label">Pakker</p>
-        <h1 class="h2">Velg pakken som passer prosjektet ditt.</h1>
-        <p class="lead wide">Tydelig omfang, fast pris, ingen overraskelser. Trenger du noe annet? Vi skreddersyr.</p>
-      </div>
-      <div class="pk-grid">
-        <article class="pk reveal">
-          <h2>Nettsted</h2>
-          <p class="pk-d">Et raskt, polert nettsted for virksomheten din.</p>
-          <p class="pk-price"><span class="pk-from">fra</span><b>35 000</b><span class="pk-unit">kr · eks. mva.</span></p>
-          <ul class="pk-list">
-            <li>Design for opptil 5 sider</li>
-            <li>Responsiv utvikling på moderne teknologi</li>
-            <li>CMS og oppsett av innhold</li>
-            <li>Grunnleggende SEO og analyse</li>
-            <li>Lansering og 30 dagers støtte</li>
-          </ul>
-          <p class="pk-time">Leveranse: 4–6 uker</p>
-          <a class="ghost pk-cta" href="kontakt.html?pkg=web"><span>Be om tilbud</span> <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="pk pop reveal">
-          <span class="pk-badge">Mest valgt</span>
-          <h2>Produkt</h2>
-          <p class="pk-d">Et skreddersydd web- eller mobilprodukt, fra idé til lansering.</p>
-          <p class="pk-price"><span class="pk-from">fra</span><b>120 000</b><span class="pk-unit">kr · eks. mva.</span></p>
-          <ul class="pk-list">
-            <li>Kartleggingsworkshop og UX-research</li>
-            <li>Komplett UI/UX-design og designsystem</li>
-            <li>Webapp eller mobilapp (MVP)</li>
-            <li>Integrasjoner, API og skyoppsett</li>
-            <li>CI/CD, overvåking og 3 måneders støtte</li>
-          </ul>
-          <p class="pk-time">Leveranse: 8–12 uker</p>
-          <a class="btn pk-cta" href="kontakt.html?pkg=product">Kom i gang</a>
-        </article>
-      </div>
-      <p class="pk-note reveal">Prisene er veiledende og eksklusive mva. Endelig tilbud etter en gratis introduksjonssamtale.</p>
+        <h1 class="h2">Tre pakker. Faste priser.</h1>
+        <p class="lead wide">Alle priser er eksklusive mva. Halvparten betales ved signering og resten ved lansering. Ingen skjulte kostnader.</p>
       </div>
       <div class="vis" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="s pk-sec" id="plans" data-form="drift">
+    <div class="wrap">
+      <div class="pjc pkc reveal" id="pkc" role="region" aria-roledescription="carousel" aria-label="Pakker" tabindex="0" data-gap="108" data-vis="1" data-start="1" data-ry="10">
+        <div class="pjc-stage">
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Bli synlig</p><h2>Start</h2><p class="pk-d">En profesjonell nettside som gjør bedriften synlig og enkel å kontakte.</p><p class="pk-price"><span class="pk-from">Fastpris</span><b>14 900</b><span class="pk-unit">kr · eks. mva.</span></p><p class="pk-in">Inneholder:</p><ul class="pk-list"><li>Nettside tilpasset PC, nettbrett og mobil</li><li>Rask og bygget for å bli funnet i søk</li><li>Farger og fonter etter din beskrivelse</li><li>Dine tekster og bilder</li><li>Kontaktskjema knyttet til e-posten din</li><li>Opplæring i CMS – oppdater innholdet selv</li><li>Én revisjon av designet</li></ul><p class="pk-time">Leveranse på 3–6 uker</p><a class="btn pk-cta" href="kontakt.html?pkg=start">Velg Start</a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk pop"><span class="pk-badge">Mest valgt</span><p class="pk-tag">Bli tydelig</p><h2>Vekst</h2><p class="pk-d">En nettside med tydelige budskap som viser hvorfor kundene bør velge deg.</p><p class="pk-price"><span class="pk-from">Fastpris</span><b>21 900</b><span class="pk-unit">kr · eks. mva.</span></p><p class="pk-in">Alt i Start, og:</p><ul class="pk-list"><li>Workshop om bedriften din, 60–120 minutter</li><li>Plan for å bli funnet på Google og i AI-søk</li><li>Stemmeprofil, så tekstene høres ut som deg</li><li>Tekster skrevet for deg</li><li>Skisser tegnet for hånd før siden kodes</li><li>Google Search Console satt opp</li></ul><p class="pk-time">Leveranse på 3–6 uker</p><a class="btn pk-cta" href="kontakt.html?pkg=growth">Velg Vekst</a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Bli lagt merke til</p><h2>Komplett</h2><p class="pk-d">Profil, nettside og annonser som hjelper deg å nå nye kunder.</p><p class="pk-price"><span class="pk-from">Fastpris</span><b>29 900</b><span class="pk-unit">kr · eks. mva.</span></p><p class="pk-in">Alt i Vekst, og:</p><ul class="pk-list"><li>Logo og visuell profil, samlet i en profilmanual</li><li>Oppsett av din egen Business Manager hos Meta</li><li>Tre annonsedesign, for feed og story</li><li>Meta-kampanje satt opp i din konto</li><li>Landingsside som gjør annonseklikk til henvendelser</li><li>Sporing av henvendelser og innlogging til besøksstatistikk</li><li>Første måned fulgt opp med rapport</li></ul><p class="pk-time">Leveranse på 3–6 uker</p><a class="btn pk-cta" href="kontakt.html?pkg=complete">Velg Komplett</a></article></div>
+        </div>
+        <button type="button" class="pjc-btn prev" aria-label="Forrige pakke"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="pjc-btn next" aria-label="Neste pakke"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="pjc-foot"><span class="pjc-count" aria-live="polite">02 / 03</span><div class="pjc-dots"></div></div>
+      </div>
+      <p class="pk-note reveal">Alle priser er eksklusive mva. Halvparten betales ved signering og resten ved lansering, sammen med første måned hosting. Annonsebudsjett betales direkte til Meta.</p>
+    </div>
+  </section>
+
+  <section class="s pk-sec" id="extras" data-form="drift">
+    <div class="wrap">
+      <p class="label">Tillegg</p>
+      <h2 class="h2">Etter lansering, og nettbutikk.</h2>
+      <div class="pjc pkc reveal" id="pxc" role="region" aria-roledescription="carousel" aria-label="Hosting, drift og nettbutikk" tabindex="0" data-gap="108" data-vis="1" data-start="1" data-ry="10">
+        <div class="pjc-stage">
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Hold det i gang</p><h2>Hosting</h2><p class="pk-d">Plattformkostnadene dekket, så siden din holder seg oppe og trygg.</p><p class="pk-price"><b>490</b><span class="pk-unit">kr / mnd · eks. mva.</span></p><p class="pk-in">Inneholder:</p><ul class="pk-list"><li>Hosting og plattformkostnader</li><li>Publiseringssystem (CMS)</li><li>Samtykkeløsning og skjema-e-post</li><li>Sikkerhet og plattformoppdateringer</li><li>Ingen binding – kan sies opp når som helst</li></ul><p class="pk-time">Faktureres fra lansering</p><a class="ghost pk-cta" href="kontakt.html?addon=hosting"><span>Spør om hosting</span> <span aria-hidden="true">→</span></a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Ligg i forkant</p><h2>Drift og oppfølging</h2><p class="pk-d">Vi følger opp siden etter lansering og forbedrer den hver måned.</p><p class="pk-price"><b>3 500</b><span class="pk-unit">kr / mnd · eks. mva.</span></p><p class="pk-in">Alt i Hosting, og:</p><ul class="pk-list"><li>Tre timer i måneden til vedlikehold og forbedringer</li><li>Månedlig møte om neste steg</li><li>Månedsrapport med tallene</li><li>Tekstendringer og oppdateringer</li><li>Ingen binding – kan sies opp når som helst</li></ul><p class="pk-time">Faktureres fra lansering</p><a class="ghost pk-cta" href="kontakt.html?addon=support"><span>Spør om drift</span> <span aria-hidden="true">→</span></a></article></div>
+          <div class="pjs" role="group" aria-roledescription="slide"><article class="pk"><p class="pk-tag">Selg på nett</p><h2>Nettbutikk</h2><p class="pk-d">En nettbutikk med eget design, bygget for å bli funnet og enkel å drifte.</p><p class="pk-price"><b>Tilbud</b><span class="pk-unit">pris etter samtale</span></p><p class="pk-in">Inneholder:</p><ul class="pk-list"><li>Nettbutikk i Shopify med eget design</li><li>Betaling og frakt for norske kunder</li><li>Produktsider bygget for å bli funnet på Google</li><li>Annonser som viser frem varene dine</li><li>Opplæring, så du legger inn varer selv</li><li>Valgfri kobling mot kassen i butikken, med felles lager</li></ul><p class="pk-time">Leveranse etter avtale</p><a class="ghost pk-cta" href="kontakt.html?pkg=shop"><span>Fortell om prosjektet</span> <span aria-hidden="true">→</span></a></article></div>
+        </div>
+        <button type="button" class="pjc-btn prev" aria-label="Forrige alternativ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="pjc-btn next" aria-label="Neste alternativ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="pjc-foot"><span class="pjc-count" aria-live="polite">02 / 03</span><div class="pjc-dots"></div></div>
+      </div>
     </div>
   </section>
 </main>
@@ -139,10 +158,9 @@
       <nav class="ft-col" aria-labelledby="ft-h3">
         <h2 id="ft-h3">Juridisk</h2>
         <ul>
-          <li><a href="#privacy">Personvernerklæring</a></li>
-          <li><a href="#terms">Vilkår for tjenester</a></li>
-          <li><a href="#cookies">Retningslinjer for informasjonskapsler</a></li>
-          <li><a href="#accessibility">Tilgjengelighetserklæring</a></li>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår for tjenester</a></li>
+          <li><a href="cookies.html">Retningslinjer for informasjonskapsler</a></li>
         </ul>
       </nav>
       <div class="ft-col">
@@ -169,6 +187,6 @@
 </footer>
 <div class="hint" id="hint">Move the cursor through the particles — they react. Click for a burst.</div>
 
-<script src="../assets/app.1b930d18.js" defer></script>
+<script src="../assets/app.0ba50672.js" defer></script>
 </body>
 </html>
